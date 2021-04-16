@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Dots&display=swap');
+
+.navbar {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    box-shadow: 0 4px 7px -6px #222;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 80px;
+  }
+  .navbar .logo {
+    display: inline-block;
+    color: White;
+    font-family: "zen dots";
+  }
+
+  .logo-img{
+    width: 100px;
+  }
+  .navbar p:hover {
+    color: #b5b5e7;
+  }
+
+  .navbar .cart{
+    display: inline-block;
+    float: right;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+  }

@@ -1,0 +1,19 @@
+.content{
+    margin-top: 50px;
+    align-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+}
+
+
+.productlist{
+    margin: 0px;
+    width: 70%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    align-self: center;
+}
