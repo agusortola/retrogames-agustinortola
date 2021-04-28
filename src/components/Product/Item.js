@@ -1,8 +1,8 @@
-import './product.css';
+import './item.css';
 import { Button } from '@material-ui/core';
 import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
 
-export const Product = (props) => {
+export const Item = (props) => {
     const handleClick = () => {
         alert(`Añadiste ${props.title} al carrito.`)
     }
@@ -44,4 +44,3 @@ export const Product = (props) => {
      );
 }
 
-//TODO Subir las imagenes a la nube - imgur  
