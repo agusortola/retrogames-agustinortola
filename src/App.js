@@ -3,10 +3,11 @@ import { NavBar } from './components/NavBar/NavBar';
 import { SearchBar } from './components/NavBar/SearchBar';
 //import { Product } from './components/Product/Product';
 import { ItemList } from './components/Product/ItemList';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function App() {
 
+  const [products, setProducts] = useState([])
   const items = [
     {
       img: 'https://i.imgur.com/4l2kSvN.jpg',
@@ -31,12 +32,23 @@ function App() {
     }
   ]
 
+  const getData = (data) => {
+    return new Promise((res, rej) => {
+      setTimeout(()=> {
+        return res (setProducts(data))
+      }, 2000)
+    })
+  }
+  getData(items)
+
+
+
 
   return (
     <div className="background">
     <NavBar />
     <SearchBar />    
-    <ItemList productList={items} />
+    <ItemList productList={products} />
     </div>
   );
 }
