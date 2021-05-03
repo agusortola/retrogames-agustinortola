@@ -3,7 +3,10 @@ import { NavBar } from './components/NavBar/NavBar';
 import { SearchBar } from './components/NavBar/SearchBar';
 //import { Product } from './components/Product/Product';
 import { ItemList } from './components/Product/ItemList';
-import {useState, useEffect} from 'react'
+import { Item } from './components/Product/Item';
+import {useState} from 'react'
+import {ItemDetailContainer} from './components/Product/ItemDetailContainer';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
 
@@ -14,23 +17,27 @@ function App() {
       title: 'Monkey Island I',
       price: 9.90,
       console: 'PC',
-      description: 'Aventura gráfica - 1990.'
+      description: 'Aventura gráfica - 1990.',
+      id: 1
     },
     {
       img: 'https://i.imgur.com/Qx6xnVG.jpg',
       title: 'Ristar',
       price: 7.30,
       console: 'SEGA',
-      description: 'Plataforma - 1995'    
+      description: 'Plataforma - 1995'  ,
+      id:2
     },
     {
       img: 'https://i.imgur.com/FRQhWjZ.jpg',
       title: 'Road Rash',
       price: 12.60,
       console: 'PC',
-      description: 'Carreras - 1991'    
+      description: 'Carreras - 1991',
+      id:3
     }
   ]
+
 
   const getData = (data) => {
     return new Promise((res, rej) => {
@@ -41,15 +48,22 @@ function App() {
   }
   getData(items)
 
-
-
-
   return (
-    <div className="background">
-    <NavBar />
-    <SearchBar />    
-    <ItemList productList={products} />
-    </div>
+    <Router>
+      <div className="background">
+        <NavBar />
+        <SearchBar />
+        <Switch>
+          <Route exact path="/">  
+            <ItemList productList={products} />
+          </Route>
+          <Route exact path="/detail/:id">
+            <ItemDetailContainer productList={products}>
+              </ItemDetailContainer> 
+          </Route>  
+        </Switch> 
+      </div>
+    </Router>
   );
 }
 

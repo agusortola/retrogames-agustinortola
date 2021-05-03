@@ -10,8 +10,7 @@ export const SearchBar = () => {
                 <p>SEGA</p>
                 <p>GameBoy</p>
                 <p>Nintendo</p>
-                <p>NATI</p>
-
+                
             </div>
 
    </div>

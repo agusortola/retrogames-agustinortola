@@ -1,14 +1,15 @@
 import { Item }  from './Item'
-import './ItemList.css';
+import './ItemDetailContainer.css';
+import { useParams } from 'react-router-dom';
 
+export const ItemDetailContainer = (props) => {
+    const {id} = useParams()
+    const items = props.productList.filter(p => p.id == id);
+    const item = items[0];
 
-
-export const ItemList = (item) => {
     return (
-        
         <div className="content">
-            <div className="itemlist">
-                {item.productList.map((item) => (
+            <div className="itemDetails">
                     <Item
                         img={item.img} 
                         title={item.title} 
@@ -17,11 +18,8 @@ export const ItemList = (item) => {
                         description= {item.description}
                         id= {item.id}
                     />
-                ))}
             </div> 
         </div>
-
-
      );
 }
  
