@@ -1,16 +1,14 @@
 import './item.css';
 import { Button } from '@material-ui/core';
 import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
-import { ItemDetailContainer } from './ItemDetailContainer';
 import {Link } from "react-router-dom";
 
 
 export const Item = (props) => {
+
     const handleClick = () => {
         alert(`Añadiste ${props.title} al carrito.`)
     }
-
-
     
     return ( 
 
@@ -26,6 +24,7 @@ export const Item = (props) => {
             </div>
             <div className="description">
                 <p className="description">{props.description}</p>
+                <Link to = {{pathname: `/itemdetail/${props.id}`}}> Expandir</Link>
             </div>
             <div className="console-tag">
                 <p className="console">console: {props.console}</p>
@@ -43,9 +42,7 @@ export const Item = (props) => {
                     size="small">
                         Add
                 </Button>
-                <Link to = {`/detail/${props.id}`}> Ver más
-                </Link>
-                
+
             </div>
         </div>
      );
