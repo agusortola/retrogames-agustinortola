@@ -1,19 +1,22 @@
-import { Item }  from './Item'
+import { Item }  from './Item';
 import './ItemList.css';
-import {useState} from 'react'
+import {useState} from 'react';
+import {useParams} from 'react-router-dom';
 
 
 
 const ItemList = () => {
 
     const [items, setItems] = useState([])
+    const [categories, setCategories] = useState()
     
     const db = [
         {
           img: 'https://i.imgur.com/4l2kSvN.jpg',
           title: 'Monkey Island I',
           price: 9.90,
-          console: 'PC',
+          console: 'nintendo',
+          categoryID: 1,
           description: 'Aventura gráfica - 1990.',
           detailedDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit massa sociosqu phasellus aptent, augue accumsan sagittis velit elementum aliquam senectus risus felis. Taciti mauris turpis venenatis auctor eleifend enim varius lobortis magna diam, aliquet vulputate senectus gravida montes molestie felis pretium quis massa, praesent himenaeos ante ligula platea faucibus dapibus tempor integer. Diam taciti pharetra ultricies class pretium rutrum bibendum vulputate aliquam platea, tortor iaculis non hendrerit sed sociis senectus pellentesque turpis nunc, condimentum ad eu dui congue tempor commodo faucibus ornare.',
           id: 1
@@ -22,7 +25,8 @@ const ItemList = () => {
           img: 'https://i.imgur.com/Qx6xnVG.jpg',
           title: 'Ristar',
           price: 7.30,
-          console: 'SEGA',
+          console: 'sega',
+          categoryID: 2,
           description: 'Plataforma - 1995'  ,
           detailedDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit massa sociosqu phasellus aptent, augue accumsan sagittis velit elementum aliquam senectus risus felis. Taciti mauris turpis venenatis auctor eleifend enim varius lobortis magna diam, aliquet vulputate senectus gravida montes molestie felis pretium quis massa, praesent himenaeos ante ligula platea faucibus dapibus tempor integer. Diam taciti pharetra ultricies class pretium rutrum bibendum vulputate aliquam platea, tortor iaculis non hendrerit sed sociis senectus pellentesque turpis nunc, condimentum ad eu dui congue tempor commodo faucibus ornare.',
           id:2
@@ -31,23 +35,27 @@ const ItemList = () => {
           img: 'https://i.imgur.com/FRQhWjZ.jpg',
           title: 'Road Rash',
           price: 12.60,
-          console: 'PC',
+          console: 'gameboy',
+          categoryID: 3,
           description: 'Carreras - 1991',
           detailedDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit massa sociosqu phasellus aptent, augue accumsan sagittis velit elementum aliquam senectus risus felis. Taciti mauris turpis venenatis auctor eleifend enim varius lobortis magna diam, aliquet vulputate senectus gravida montes molestie felis pretium quis massa, praesent himenaeos ante ligula platea faucibus dapibus tempor integer. Diam taciti pharetra ultricies class pretium rutrum bibendum vulputate aliquam platea, tortor iaculis non hendrerit sed sociis senectus pellentesque turpis nunc, condimentum ad eu dui congue tempor commodo faucibus ornare.',
           id:3
         }
       ]
 
-      const getData = (data) => {
+      const getItems = (items) => {
         return new Promise((res, rej) => {
           setTimeout(()=> {
-            return res (setItems(data))
-          }, 500)
+            return res (setItems(items))
+          }, 2000)
         })
       }
-      getData(db)
+      getItems(db)
 
-    
+      const { category } = useParams();
+      
+  
+
 
     return (
         

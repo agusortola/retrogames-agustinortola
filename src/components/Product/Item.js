@@ -1,17 +1,14 @@
 import './item.css';
-import { Button } from '@material-ui/core';
-import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
+
 import {Link } from "react-router-dom";
 
 
 export const Item = (props) => {
 
-    const handleClick = () => {
-        alert(`Añadiste ${props.title} al carrito.`)
-    }
+
     
     return ( 
-
+        <Link to = {{pathname: `/item/${props.id}`}}>
         <div className="product">
             <div className="img">
             <img src={props.img} alt=""/>
@@ -24,27 +21,13 @@ export const Item = (props) => {
             </div>
             <div className="description">
                 <p className="description">{props.description}</p>
-                <Link to = {{pathname: `/itemdetail/${props.id}`}}> Expandir</Link>
+                 
             </div>
             <div className="console-tag">
                 <p className="console">console: {props.console}</p>
             </div>
-            <div className="div-btn-add">
-                <Button 
-                    onClick={handleClick}
-                    startIcon={<ShoppingCartIcon />} 
-                    variant="contained"
-                    style={{
-                        fontSize:10,
-                        fontFamily: "open-sans"
-                    }} 
-                    color="primary" 
-                    size="small">
-                        Add
-                </Button>
-
-            </div>
         </div>
+        </Link>
      );
 }
 

@@ -4,8 +4,8 @@ import {useState } from 'react';
 import ItemDetail from './ItemDetail';
 
 
+
 export const ItemDetailContainer = (item) => {
-  
 
   const db = [
     {
@@ -37,29 +37,19 @@ export const ItemDetailContainer = (item) => {
     }
   ]
 
-  
     const {id} = useParams()
     const items = db.filter(p => p.id == id);
     const i= items[0];
-
-    console.log(item)
-
-
-
-
-
-
-      
-
-    return (
+  
+return (
     <div className="content">
       <ItemDetail 
-                              img={i.img} 
-                              title={i.title} 
-                              price={i.price} 
-                              console={i.console} 
-                              detailedDescription= {i.detailedDescription}
-                              id= {i.id}
+        img={i.img} 
+        title={i.title} 
+        price={i.price} 
+        console={i.console} 
+        detailedDescription= {i.detailedDescription}
+        id= {i.id}
       />
     </div>
      );
