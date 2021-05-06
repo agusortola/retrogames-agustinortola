@@ -14,14 +14,12 @@ function App() {
     <Router>
       <div className="background">
         <NavBar />
-        <Switch>
           <SearchBar>
-            <Route exact path="/category/:categoryId" component = { ItemListContainer } /> 
           </SearchBar>
-        </Switch>
         <Switch>
           <Route exact path="/" component = { ItemListContainer } />
-          <Route exact path="/item/:id" component = { ItemDetailContainer }  /> 
+          <Route exact path="/item/:id" component = { ItemDetailContainer }  />
+          <Route exact path="/category/:categoryId" component = { ItemListContainer } />  
         </Switch>
       </div>
     </Router>
