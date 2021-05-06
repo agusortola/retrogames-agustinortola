@@ -36,7 +36,6 @@ export const ItemDetailContainer = (item) => {
       id:3
     }
   ]
-
     const {id} = useParams()
     const items = db.filter(p => p.id == id);
     const i= items[0];

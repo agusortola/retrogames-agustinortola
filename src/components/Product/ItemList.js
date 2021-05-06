@@ -5,11 +5,10 @@ import {useParams} from 'react-router-dom';
 
 
 
-const ItemList = () => {
+const ItemList = (props) => {
 
     const [items, setItems] = useState([])
     const [categories, setCategories] = useState()
-    
     const db = [
         {
           img: 'https://i.imgur.com/4l2kSvN.jpg',
@@ -52,16 +51,10 @@ const ItemList = () => {
       }
       getItems(db)
 
-      const { category } = useParams();
-      
-  
-
-
     return (
-        
         <div className="content">
             <div className="itemlist">
-                {items.map((item) => (
+                {items.filter(i => props.category == null || i.console == props.category).map((item) => (
                     <Item
                         img={item.img} 
                         title={item.title} 
@@ -74,8 +67,6 @@ const ItemList = () => {
                 ))}
             </div> 
         </div>
-
-
      );
 }
 

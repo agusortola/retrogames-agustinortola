@@ -1,12 +1,9 @@
 import './itemdetail.css';
 import { Button } from '@material-ui/core';
 import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
-import {Link } from "react-router-dom";
+
 
 function ItemDetail (item) {
-   
-
-
 
     return ( 
       <div className="productDetail">
@@ -40,9 +37,7 @@ function ItemDetail (item) {
           
       </div>
   </div>
-);
-
-     
+);   
 }
  
 export default ItemDetail;

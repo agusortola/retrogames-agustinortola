@@ -31,8 +31,8 @@ export const SearchBar = (props) => {
             <div className="links">
                 <nav>
                     <ul>
-                        <Link to = {{pathname: `/category/${category}`}}>
-                            <li onClick={handleClick}>SEGA</li>
+                        <Link to = {{pathname: `/category/sega`}}>
+                             <li>SEGA</li>
                         </Link>
                         <Link to = {{pathname: `/category/${category}`}}>
                             <li onClick={handleClick}>GameBoy</li>

@@ -5,8 +5,6 @@ import {Link } from "react-router-dom";
 
 export const Item = (props) => {
 
-
-    
     return ( 
         <Link to = {{pathname: `/item/${props.id}`}}>
         <div className="product">
@@ -30,4 +28,3 @@ export const Item = (props) => {
         </Link>
      );
 }
-
