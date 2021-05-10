@@ -14,6 +14,7 @@ export const NavBar = () => {
             </div>
             <div className="cart">
                 <IconButton color="primary" aria-label="add to shopping cart">
+                    
                     <ShoppingCartIcon                     
                         style={{
                             padding:0,
