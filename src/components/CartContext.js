@@ -21,15 +21,25 @@ export const CartProvider = ({children}) => {
         setCart(newCart)
     }
 
+    //Borra todos los items del carrito.
+    const clear = () => {
+        setCart([])
+    }
+
+    const checkOut = () => {
+        cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún producto :)')
+    }
+
     //Re-renderea cada vez que se modifica el largo o tamaño de cart.
     useEffect(()=>{
         setQuantity(cart.length)
         console.log(cart)
     },[cart])
     
+    
 
     return(
-        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart}}>
+        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut}}>
             {children}
         </CartContext.Provider>
     )
