@@ -3,6 +3,7 @@ import './NavBar.css'
 import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
 import IconButton from '@material-ui/core/IconButton';
 import { NavLink } from 'react-router-dom';
+import CartWidget from './CartWidget';
 
 export const NavBar = () => {
     return ( 
@@ -13,15 +14,8 @@ export const NavBar = () => {
             </NavLink>
             </div>
             <div className="cart">
-                <IconButton color="primary" aria-label="add to shopping cart">
-                    
-                    <ShoppingCartIcon                     
-                        style={{
-                            padding:0,
-                            margin:0
-                        }}  
-                    />
-                </IconButton>    
+            <span>0</span>
+                <CartWidget/>
             </div>
        </nav> 
 
