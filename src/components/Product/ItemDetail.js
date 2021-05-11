@@ -2,8 +2,9 @@ import './itemdetail.css';
 import { Button } from '@material-ui/core';
 import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {useState, useRef, useEffect } from 'react';
-import {Link} from "react-router-dom"
+import { useState, useContext } from 'react';
+import { Link } from "react-router-dom"
+import { CartContext } from '../CartContext';
 
 
 function ItemDetail (item) {
@@ -12,25 +13,22 @@ function ItemDetail (item) {
     const [enableCheckout, setEnableCheckout] = useState(false);
     const [enableAdd, setEnableAdd] = useState(true);
    
+    const { addToCart, removeFromCart } = useContext(CartContext)
 
-    const [itemCount,setItemCount] = useState(0)
-
-    function handleAdd(e){
-        setItemCount(1)
+    function handleAdd(){
         setEnableAdd(false)
         setEnableCancel(true)
         setEnableCheckout(true)
     }
    
     function handleCancel(){
+        
         setEnableCancel(false)
         setEnableCheckout(false)
         setEnableAdd(true)
-        setItemCount(0)
     }
     
     function handleCheckout(){
-        console.log('asd')
     }
 
     return ( 
@@ -53,18 +51,16 @@ function ItemDetail (item) {
         <div className="div-btn-add">
         {enableAdd &&
             <Button color="secondary"
-                    onClick={handleAdd}
+                    onClick={() => { handleAdd(); addToCart(item);}}
                     startIcon={<ShoppingCartIcon />} 
                     variant="contained"
-                    
                     style={{
-                        
                     fontSize:10,
                     fontFamily: "open-sans"
                 }} 
                 color="primary" 
                 size="small">
-                    Add
+                    Añadir
             </Button>}
 
             <Link to = {{pathname: `/cart`}}>        
@@ -89,7 +85,7 @@ function ItemDetail (item) {
                 
             {enableCancel && 
                 <Button 
-                onClick={handleCancel}
+                onClick={() => { handleCancel() ;removeFromCart(item.id);}}
                 startIcon={<DeleteIcon />} 
                 variant="contained"
                 size="small"
@@ -100,7 +96,7 @@ function ItemDetail (item) {
                 borderColor: '#ff3f34',
                 }}  
                 >
-                    Quitar
+                    Remover
                 </Button> 
             }          
         </div>

@@ -1,8 +1,10 @@
 import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
 import IconButton from '@material-ui/core/IconButton';
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-    return ( 
+    return (
+        <Link to = {{pathname: `/cart`}}>
         <IconButton color="primary" aria-label="add to shopping cart">        
         <ShoppingCartIcon                     
             style={{
@@ -11,6 +13,7 @@ const CartWidget = () => {
             }}  
         />
     </IconButton>    
+    </Link> 
      );
 }
  

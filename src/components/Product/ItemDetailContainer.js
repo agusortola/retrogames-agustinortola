@@ -1,11 +1,14 @@
 import './ItemDetailContainer.css';
 import { useParams } from 'react-router-dom';
-import {useState } from 'react';
+import {useContext, useState } from 'react';
 import ItemDetail from './ItemDetail';
+import { CartContext } from '../CartContext';
 
 
 
 export const ItemDetailContainer = (item) => {
+
+  const {addToCart} = useContext(CartContext)
 
   const db = [
     {
@@ -49,6 +52,8 @@ return (
         console={i.console} 
         detailedDescription= {i.detailedDescription}
         id= {i.id}
+        addToCart
+        removeFromCart
       />
     </div>
      );

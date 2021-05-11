@@ -1,8 +1,8 @@
 import React from 'react';
 import './searchbar.css';
 import { Link } from 'react-router-dom';
-import {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+
 
 export const SearchBar = (props) => {
 
