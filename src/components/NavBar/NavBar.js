@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './NavBar.css'
-import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
-import IconButton from '@material-ui/core/IconButton';
 import { NavLink } from 'react-router-dom';
+import CartWidget from './CartWidget';
+import { CartContext } from '../CartContext';
 
 export const NavBar = () => {
+
+    const { quantity } = useContext(CartContext)    
+
     return ( 
         <nav className="navbar">
             <div className="logo">
@@ -13,15 +16,8 @@ export const NavBar = () => {
             </NavLink>
             </div>
             <div className="cart">
-                <IconButton color="primary" aria-label="add to shopping cart">
-                    
-                    <ShoppingCartIcon                     
-                        style={{
-                            padding:0,
-                            margin:0
-                        }}  
-                    />
-                </IconButton>    
+            <span>{quantity}</span>
+                <CartWidget/>
             </div>
        </nav> 
 

@@ -1,14 +1,12 @@
 import { Item }  from './Item';
 import './ItemList.css';
 import {useState} from 'react';
-import {useParams} from 'react-router-dom';
 
 
 
 const ItemList = (props) => {
 
     const [items, setItems] = useState([])
-    const [categories, setCategories] = useState()
     const db = [
         {
           img: 'https://i.imgur.com/4l2kSvN.jpg',

@@ -1,44 +1,26 @@
-import React from 'react';
 import './searchbar.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
-export const SearchBar = (props) => {
 
-    const [category, setcategory] = useState('');
+export const SearchBar = () => {
 
-    function handleClick(e) {
-            if (e.target.innerText.toString().toLowerCase() == 'all games'){
-                setcategory('')
-            }
-            else if (e.target.innerText.toString().toLowerCase() == 'family'){
-                setcategory('family')
-            }
-            else if (e.target.innerText.toString().toLowerCase() == 'nintendo'){
-                setcategory('nintendo')
-            }
-            else if (e.target.innerText.toString().toLowerCase() == 'sega'){
-                setcategory('sega')
-            }
-            else if (e.target.innerText.toString().toLowerCase() == 'gameboy'){
-                setcategory('gameboy')
-            }
-      }
+    const [category, setCategory] = useState('');
 
     return (  
         <div className="searchbar">
             <div className="links">
                 <nav>
                     <ul>
-                        <Link to = {{pathname: `/category/sega`}}>
-                             <li>SEGA</li>
+                        <Link to = {{pathname: `/category/${category}`}}>
+                             <li onClick={()=>{setCategory('sega')}}>SEGA</li>
                         </Link>
                         <Link to = {{pathname: `/category/${category}`}}>
-                            <li onClick={handleClick}>GameBoy</li>
+                            <li onClick={()=>{setCategory('gameboy')}}>GameBoy</li>
                         </Link>
                         <Link to = {{pathname: `/category/${category}`}}>
-                            <li onClick={handleClick}>Nintendo</li>
+                            <li onClick={()=>{setCategory('nintendo')}}>Nintendo</li>
                         </Link>
                     </ul>
                 </nav>
