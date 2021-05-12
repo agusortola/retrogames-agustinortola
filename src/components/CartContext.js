@@ -12,10 +12,10 @@ export const CartProvider = ({children}) => {
 
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
     const addToCart = (item) => {
-        const alreadyInCart = cart.some(i => i.id === item.id)
-        if (alreadyInCart){
+        const isInCart = cart.some(i => i.id === item.id)
+        if (isInCart){
             alert('Ese producto ya se encuentra en el carrito!')
-            return alreadyInCart
+            return isInCart
         }
         else{
             setCart([...cart, item]) 
