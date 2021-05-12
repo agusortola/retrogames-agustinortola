@@ -12,12 +12,13 @@ export const CartProvider = ({children}) => {
 
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
     const addToCart = (item) => {
-        setCart([...cart, item])
+
+        setCart([...cart, item]) 
     }
     
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
     const removeFromCart = (itemId) => {
-        const newCart = cart.filter(item => item.id != itemId)
+        const newCart = cart.filter(item => item.id !== itemId)
         setCart(newCart)
     }
 

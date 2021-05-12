@@ -6,7 +6,7 @@ import { CartContext } from '../CartContext';
 
 
 
-export const ItemDetailContainer = (item) => {
+export const ItemDetailContainer = () => {
 
   const {addToCart} = useContext(CartContext)
 
@@ -43,10 +43,7 @@ export const ItemDetailContainer = (item) => {
     const items = db.filter(p => p.id == id);
     const i= items[0];
 
-    useEffect(()=>{
-      console.log('asd')
-    },[items])
-  
+
 return (
     <div className="content">
       <ItemDetail 
