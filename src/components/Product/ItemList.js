@@ -44,7 +44,7 @@ const ItemList = (props) => {
         return new Promise((res, rej) => {
           setTimeout(()=> {
             return res (setItems(items))
-          }, 2000)
+          }, 1)
         })
       }
       getItems(db)

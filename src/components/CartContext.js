@@ -8,30 +8,34 @@ export const CartProvider = ({children}) => {
 
     //estado global del carrito, el children no lo modifica!
     const [cart, setCart] = useState([])
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
-    const addToCart = (item) => {
-        const isInCart = cart.some(i => i.id === item.id)
-        if (isInCart){
-            alert('Ese producto ya se encuentra en el carrito!')
-            return isInCart
+    const addToCart = (item, count) => {
+        const index = cart.findIndex(i => i.item.id == item.id)
+        if (index >= 0) {
+            const itemInCart = cart[index]
+            itemInCart.quantity = itemInCart.quantity + count
+          
+        } else {
+            const newItem = {
+                item: item,
+                quantity: count
+            }
+            setCart([...cart, newItem]) 
         }
-        else{
-            setCart([...cart, item]) 
-        }
-        
     }
     
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
     const removeFromCart = (itemId) => {
-        const newCart = cart.filter(item => item.id !== itemId)
+        const newCart = cart.filter(item => item.item.id !== itemId)
         setCart(newCart)
     }
 
     //Borra todos los items del carrito.
     const clear = () => {
         setCart([])
+        
     }
 
     const checkOut = () => {
@@ -41,7 +45,6 @@ export const CartProvider = ({children}) => {
     //Re-renderea cada vez que se modifica el largo o tamaño de cart.
     useEffect(()=>{
         setQuantity(cart.length)
-        console.log(cart)
     },[cart])
     
     
