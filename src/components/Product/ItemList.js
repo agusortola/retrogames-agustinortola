@@ -97,8 +97,7 @@ const ItemList = (props) => {
                   title={item.title} 
                   price={item.price} 
                   console={item.console} 
-                  description= {item.description}
-                  detailedDescription= {item.detailedDescription}
+                  
                   id= {item.id}
                 />
               </Grid>
