@@ -28,7 +28,7 @@ function ItemDetail (item) {
         <img src={item.img} alt=""/>
         </div>
         <div className="title">
-            <h1 >{item.title}</h1>
+            <h1>{item.title}</h1>
         </div>
         <div className="price">
             <h1>${item.price}</h1>
