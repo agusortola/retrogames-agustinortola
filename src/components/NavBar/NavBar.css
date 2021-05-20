@@ -8,11 +8,12 @@
     align-content: center;
     justify-content: center;
     margin-bottom: 80px;
+    font-family: "Press Start 2P";
   }
   .navbar .logo {
     display: inline-block;
     color: White;
-    font-family: "zen dots";
+    font-family: "Press Start 2P";
   }
 
   .logo-img{
@@ -28,4 +29,12 @@
     padding: 0;
     margin: 0;
     vertical-align: middle;
+    font-family: "Press Start 2P";
+  }
+
+
+
+  .navbar .qty-cart{
+    font-family: "Press Start 2P";
+    margin-top: 15px;
   }
