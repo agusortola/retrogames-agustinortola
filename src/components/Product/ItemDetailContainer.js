@@ -16,12 +16,10 @@ export const ItemDetailContainer = () => {
       
       const db = getFireStore()
       const itemCollection = db.collection('items')
-      
-      const filteredQuery = itemCollection.where('id', '==', id);
-      console.log(filteredQuery)
+      const filteredQuery = itemCollection.where('id', '==', Number.parseInt(id));
       filteredQuery.get().then(
         (querySnapshot) => {
-          setItem(prev => querySnapshot.docs[0]);
+          setItem(prev => querySnapshot.docs[0].data());
         }).catch(
           (error) => console.error("Firestore error:", error)
         )

@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 
 
 const ItemList = (props) => {
-  console.log(props.items)
+
     return (
       
           <Grid
