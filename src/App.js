@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {ItemListContainer} from './components/Product/ItemListContainer';
 import { CartProvider } from './components/CartContext';
 import Cart from './components/Cart';
-
+import "nes.css/css/nes.min.css";
 
 function App() {
 

@@ -34,7 +34,7 @@ const Cart = () => {
                             color: "#ff5252",
                         }}
                     >
-                        X
+                       <i class="nes-icon close is-small"></i>
                     </button>
                 </div>
             ))}
@@ -59,8 +59,9 @@ const Cart = () => {
                 >
                     Vaciar
                 </Button>
-                :
-                <p className='btns'>No hay items en el carrito.</p>
+                :<div class="nes-balloon from-left is-dark">
+                <span class="nes-text is-error"><p>No hay items en el carrito.</p></span>
+                </div>
                 }
 
                 {cartItems.cart.length>=1 ? 

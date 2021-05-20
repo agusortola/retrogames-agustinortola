@@ -13,13 +13,15 @@ export const Item = (props) => {
                     <h1 >{props.title}</h1>
                 </div>
                 <div className="price">
-                    <h1>${props.price}</h1>
+                    <h1>{props.price} <i class="nes-icon coin is-small"> </i></h1>
                 </div>
                 <div className="description">
                     <p className="description">{props.description}</p>
                 </div>
                 <div className="console-tag">
-                    <p className="console">console: {props.console}</p>
+               
+                    <i class="snes-logo is-large"></i>
+                    <p className="console">{props.console}</p>
                 </div>
                 </Link>
             </div>

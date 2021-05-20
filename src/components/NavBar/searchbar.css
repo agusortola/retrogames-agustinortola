@@ -11,12 +11,13 @@
     font-family: "Press Start 2P";
     display: inline-block;
     padding: 0px 10px 10px 10px;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid #68e941;
 }
 
 .links li:hover {
     font-family: "Press Start 2P";
-    color: #b5b5e7;
+    color: #68e941;
     transform: translate(0, -5px);
-    border-bottom: 3px solid #40407A;
+    border-bottom: 3px solid #68e941;
+    
   }

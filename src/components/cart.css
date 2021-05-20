@@ -4,6 +4,7 @@
     justify-content: center;
     width: 100vw;
     align-items: center;
+    font-family: 'Press Start 2P';
 }
 .item{
     display: block;
@@ -17,11 +18,12 @@
     border-top: 1px solid aqua;
     border-bottom: 1px solid aqua;
     padding: 20px;
+    font-family: 'Press Start 2P';
 }
 
 .title{
     display: inline-block;
-   
+    font-family: 'Press Start 2P';
 }
 
 .qty{
@@ -37,4 +39,7 @@
     margin-top: 20px;
     align-self: center;
     text-align: center;
+}
+.btns p{
+    font-family: 'Press Start 2P';
 }
