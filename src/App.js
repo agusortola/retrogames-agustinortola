@@ -6,6 +6,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {ItemListContainer} from './components/Product/ItemListContainer';
 import { CartProvider } from './components/CartContext';
 import Cart from './components/Cart';
+<link
+  href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+  rel="stylesheet"
+/>
+  
 
 
 function App() {

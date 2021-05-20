@@ -15,8 +15,9 @@
 .product h1{
     display: inline-block;
     width: 100%;
-    font-size: 14px;
+    font-size: 12px;
     color: #f7f1e3;
+    font-family: "Press Start 2P";
 }
 
 .title{
@@ -35,10 +36,11 @@
 }
 
 .price h1{
-    font-family: "open sans";
+      font-family: "Press Start 2P";
     font-weight: 400;
-    font-size: 19px;
+    font-size: 14px;
     color: #f7f1e3;
+    
 }
 
 
@@ -52,16 +54,17 @@
     display: inline-block;
     text-align: left;
     align-content: space-between;
+    
 
 }
 
 .console-tag p{
     display: inline-block;
     padding-top: 15px;
-    font-family: "open sans";
+    font-family: "Press Start 2P";
     color: white;
     font-style: italic;
-    font-size: 12px;
+    font-size: 8px;
     color: #706fd3
 }
 

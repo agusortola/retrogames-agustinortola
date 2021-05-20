@@ -1,9 +1,12 @@
 import "./item.css"
 import {Link } from "react-router-dom";
+import nesTheme from 'react-select-nes-css-theme';
+
+
 
 export const Item = (props) => {
     return ( 
-        
+        <Container styles={nesTheme}>
             <div className="product">
                 <Link to = {{pathname: `/item/${props.id}`}}>
                 <div className="img">
@@ -23,6 +26,7 @@ export const Item = (props) => {
                 </div>
                 </Link>
             </div>
+            </Container>
         
      );
 }

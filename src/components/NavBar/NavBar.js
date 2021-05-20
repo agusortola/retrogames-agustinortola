@@ -16,7 +16,7 @@ export const NavBar = () => {
             </NavLink>
             </div>
             <div className="cart">
-            <span>{quantity}</span>
+            <span className="qty-cart">{quantity}</span>
                 <CartWidget/>
             </div>
        </nav> 
