@@ -3,59 +3,42 @@ import { useParams } from 'react-router-dom';
 import {useContext, useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { CartContext } from '../CartContext';
-
+import { getFireStore } from '../../firebase';
 
 
 export const ItemDetailContainer = () => {
+  const [item, setItem] = useState()
+  const {id} = useParams()
 
+
+  useEffect(
+    () => {
+      
+      const db = getFireStore()
+      const itemCollection = db.collection('items')
+      const filteredQuery = itemCollection.where('id', '==', Number.parseInt(id));
+      filteredQuery.get().then(
+        (querySnapshot) => {
+          setItem(prev => querySnapshot.docs[0].data());
+        }).catch(
+          (error) => console.error("Firestore error:", error)
+        )
+    }, [])
+  
   const {addToCart} = useContext(CartContext)
-
-  const db = [
-    {
-      img: 'https://i.imgur.com/4l2kSvN.jpg',
-      title: 'Monkey Island I',
-      price: 9.90,
-      console: 'nintendo',
-      description: 'Aventura gráfica - 1990.',
-      detailedDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit massa sociosqu phasellus aptent, augue accumsan sagittis velit elementum aliquam senectus risus felis. Taciti mauris turpis venenatis auctor eleifend enim varius lobortis magna diam, aliquet vulputate senectus gravida montes molestie felis pretium quis massa, praesent himenaeos ante ligula platea faucibus dapibus tempor integer. Diam taciti pharetra ultricies class pretium rutrum bibendum vulputate aliquam platea, tortor iaculis non hendrerit sed sociis senectus pellentesque turpis nunc, condimentum ad eu dui congue tempor commodo faucibus ornare.',
-      id: 1
-    },
-    {
-      img: 'https://i.imgur.com/Qx6xnVG.jpg',
-      title: 'Ristar',
-      price: 7.30,
-      console: 'sega',
-      description: 'Plataforma - 1995'  ,
-      detailedDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit massa sociosqu phasellus aptent, augue accumsan sagittis velit elementum aliquam senectus risus felis. Taciti mauris turpis venenatis auctor eleifend enim varius lobortis magna diam, aliquet vulputate senectus gravida montes molestie felis pretium quis massa, praesent himenaeos ante ligula platea faucibus dapibus tempor integer. Diam taciti pharetra ultricies class pretium rutrum bibendum vulputate aliquam platea, tortor iaculis non hendrerit sed sociis senectus pellentesque turpis nunc, condimentum ad eu dui congue tempor commodo faucibus ornare.',
-      id:2
-    },
-    {
-      img: 'https://i.imgur.com/FRQhWjZ.jpg',
-      title: 'Road Rash',
-      price: 12.60,
-      console: 'gameboy',
-      description: 'Carreras - 1991',
-      detailedDescription: 'Lorem ipsum dolor sit amet consectetur adipiscing elit massa sociosqu phasellus aptent, augue accumsan sagittis velit elementum aliquam senectus risus felis. Taciti mauris turpis venenatis auctor eleifend enim varius lobortis magna diam, aliquet vulputate senectus gravida montes molestie felis pretium quis massa, praesent himenaeos ante ligula platea faucibus dapibus tempor integer. Diam taciti pharetra ultricies class pretium rutrum bibendum vulputate aliquam platea, tortor iaculis non hendrerit sed sociis senectus pellentesque turpis nunc, condimentum ad eu dui congue tempor commodo faucibus ornare.',
-      id:3
-    }
-  ]
-    const {id} = useParams()
-    const items = db.filter(p => p.id == id);
-    const i= items[0];
-
 
 return (
     <div className="content">
-      <ItemDetail 
-        img={i.img} 
-        title={i.title} 
-        price={i.price} 
-        console={i.console} 
-        detailedDescription= {i.detailedDescription}
-        id= {i.id}
+      {item && <ItemDetail 
+        img={item.img} 
+        title={item.title} 
+        price={item.price} 
+        console={item.categoryId} 
+        detailedDescription= {item.detailedDescription}
+        id= {item.id}
         addToCart
         removeFromCart
-      />
+      />}
     </div>
      );
 }

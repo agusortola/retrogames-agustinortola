@@ -14,7 +14,7 @@ export const SearchBar = () => {
                 <nav>
                     <ul>
                         <Link to = {{pathname: `/category/${category}`}}>
-                             <li onClick={()=>{setCategory('sega')}}>SEGA</li>
+                             <li onClick={()=>{setCategory('pc')}}>PC</li>
                         </Link>
                         <Link to = {{pathname: `/category/${category}`}}>
                             <li onClick={()=>{setCategory('gameboy')}}>GameBoy</li>

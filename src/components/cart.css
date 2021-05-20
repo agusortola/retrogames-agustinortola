@@ -1,3 +1,40 @@
-.content{
+
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+}
+.item{
+    display: block;
+    margin: auto;
+    width:25%;
+}
+
+.row{
+    display: block;
+    width: 100%;
+    border-top: 1px solid aqua;
+    border-bottom: 1px solid aqua;
+    padding: 20px;
+}
+
+.title{
+    display: inline-block;
+   
+}
+
+.qty{
+    display: inline-block;
+    margin: 5px
+}
+
+.price{
+    display: inline-block;
+}
+
+.btns{
+    margin-top: 20px;
     align-self: center;
+    text-align: center;
 }

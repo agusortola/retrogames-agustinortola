@@ -1,34 +1,25 @@
 import './itemdetail.css';
-import { Button } from '@material-ui/core';
-import  ShoppingCartIcon  from '@material-ui/icons/ShoppingCart';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { useState, useContext } from 'react';
-import { Link } from "react-router-dom"
 import { CartContext } from '../CartContext';
+import { ItemCount } from './ItemCount';
 
 
 function ItemDetail (item) {
 
-    const [enableCancel, setEnableCancel] = useState(false);
-    const [enableCheckout, setEnableCheckout] = useState(false);
-    const [enableAdd, setEnableAdd] = useState(true);
-   
-    const { addToCart, removeFromCart } = useContext(CartContext)
+    const { addToCart, removeFromCart, quantity } = useContext(CartContext)
+    const [count, setCount] = useState(0);
 
     function handleAdd(){
-        setEnableAdd(false)
-        setEnableCancel(true)
-        setEnableCheckout(true)
+        setCount(count + 1)
     }
-   
-    function handleCancel(){
-        
-        setEnableCancel(false)
-        setEnableCheckout(false)
-        setEnableAdd(true)
+ 
+    function handleConfirm(){
+        addToCart(item, count)
     }
-    
-    function handleCheckout(){
+
+    function handleRemove(){
+        setCount(count - 1)
+        removeFromCart(item.id)
     }
 
     return ( 
@@ -37,7 +28,7 @@ function ItemDetail (item) {
         <img src={item.img} alt=""/>
         </div>
         <div className="title">
-            <h1 >{item.title}</h1>
+            <h1>{item.title}</h1>
         </div>
         <div className="price">
             <h1>${item.price}</h1>
@@ -48,59 +39,13 @@ function ItemDetail (item) {
         <div className="console-tag">
             <p className="console">console: {item.console}</p>
         </div>
-        <div className="div-btn-add">
-        {enableAdd &&
-            <Button color="secondary"
-                    onClick={() => { handleAdd(); addToCart(item);}}
-                    startIcon={<ShoppingCartIcon />} 
-                    variant="contained"
-                    style={{
-                    fontSize:10,
-                    fontFamily: "open-sans"
-                }} 
-                color="primary" 
-                size="small">
-                    Añadir
-            </Button>}
-
-            <Link to = {{pathname: `/cart`}}>        
-                {enableCheckout &&
-                
-                    <Button
-                
-                        onClick={handleCheckout}
-                        startIcon={<ShoppingCartIcon />} 
-                        variant="contained"
-                        size="small"                    
-                        style={{
-                        fontSize:10,
-                        fontFamily: "open-sans",
-                        backgroundColor: '#05c46b',
-                        borderColor: '#05c46b',
-                }}                  
-                    >
-                        Comprar
-                    </Button>}
-            </Link>
-                
-            {enableCancel && 
-                <Button 
-                onClick={() => { handleCancel() ;removeFromCart(item.id);}}
-                startIcon={<DeleteIcon />} 
-                variant="contained"
-                size="small"
-                style={{
-                fontSize:10,
-                fontFamily: "open-sans",
-                backgroundColor: '#ff3f34',
-                borderColor: '#ff3f34',
-                }}  
-                >
-                    Remover
-                </Button> 
-            }          
+            <ItemCount 
+                onAdd={handleAdd}
+                onRemove={handleRemove}
+                count={count}
+                onConfirm={handleConfirm}             
+            />    
         </div>
-  </div>
 );   
 }
  
