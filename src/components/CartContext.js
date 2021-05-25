@@ -1,3 +1,4 @@
+import { CloudSharp, ContactsOutlined } from "@material-ui/icons";
 import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
@@ -14,8 +15,12 @@ export const CartProvider = ({children}) => {
     const addToCart = (item, count) => {
         const index = cart.findIndex(i => i.item.id == item.id)
         if (index >= 0) {
-            const itemInCart = cart[index]
+            const itemInCart = cart[index]         
             itemInCart.quantity = itemInCart.quantity + count
+            //updateCart es el carrito sin el item encontrado para agregarselo actualizado.
+            const updatedCart = cart.filter((c, i) => i !== index)
+            updatedCart.push(itemInCart) //agrego item actualizado.
+            setCart(updatedCart)   //seteo carrito actualizado.
           
         } else {
             const newItem = {
@@ -39,15 +44,13 @@ export const CartProvider = ({children}) => {
     }
 
     const checkOut = () => {
-        cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún producto :)')
+        cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún item :)')
     }
 
-    //Re-renderea cada vez que se modifica el largo o tamaño de cart.
+    // el quantity no se guarda en un estado, sino que se calcula en base al cart cada vez que se modifica
     useEffect(()=>{
-        setQuantity(cart.length)
+        setQuantity(() =>  cart.reduce((t, item) => t += item.quantity, 0))
     },[cart])
-    
-    
 
     return(
         <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut}}>

@@ -18,8 +18,9 @@ function ItemDetail (item) {
     }
 
     function handleRemove(){
-        setCount(count - 1)
-        removeFromCart(item.id)
+        if (count > 0) {
+            setCount(count - 1)
+        }
     }
 
     return ( 
