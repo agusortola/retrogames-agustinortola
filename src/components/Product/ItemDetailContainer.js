@@ -5,27 +5,9 @@ import ItemDetail from './ItemDetail';
 import { CartContext } from '../CartContext';
 import { getFireStore } from '../../firebase';
 
-
-export const ItemDetailContainer = () => {
-  const [item, setItem] = useState()
-  const {id} = useParams()
-
-
-  useEffect(
-    () => {
-      
-      const db = getFireStore()
-      const itemCollection = db.collection('items')
-      const filteredQuery = itemCollection.where('id', '==', Number.parseInt(id));
-      filteredQuery.get().then(
-        (querySnapshot) => {
-          setItem(prev => querySnapshot.docs[0].data());
-        }).catch(
-          (error) => console.error("Firestore error:", error)
-        )
-    }, [])
+export const ItemDetailContainer = (props) => {
   
-  const {addToCart} = useContext(CartContext)
+  const { item } = props.location.state
 
 return (
     <div className="content">
@@ -36,8 +18,6 @@ return (
         console={item.categoryId} 
         detailedDescription= {item.detailedDescription}
         id= {item.id}
-        addToCart
-        removeFromCart
       />}
     </div>
      );

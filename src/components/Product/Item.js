@@ -5,7 +5,7 @@ export const Item = (props) => {
     return ( 
         
             <div className="product">
-                <Link to = {{pathname: `/item/${props.id}`}}>
+                <Link to = {{pathname: `/item/${props.id}`, state: { item: props }}}>
                 <div className="img">
                 <img src={props.img} alt=""/>
                 </div>

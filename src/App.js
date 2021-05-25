@@ -21,7 +21,7 @@ function App() {
             </SearchBar>
           <Switch>
             <Route exact path="/" component = { ItemListContainer } />
-            <Route exact path="/item/:id" component = { ItemDetailContainer }  />
+            <Route exact path="/item/:id" component = { ItemDetailContainer } />
             <Route exact path="/category/:categoryId" component = { ItemListContainer } />  
             <Route exact path="/cart" component = { Cart } />  
           </Switch>
