@@ -8,9 +8,10 @@ import {Form} from './Form'
 
 
 
+
 const Cart = () => {
     const cartItems = useContext(CartContext)
-    const [form, setForm] = useState({})
+    const [form, setForm] = useState([])
     const [isDisabledButton, setIsDisabledButton] = useState(true)
     
     let total = 0;
@@ -19,6 +20,10 @@ const Cart = () => {
     const onSubmit = (form) =>{
        setForm(form)
     }
+
+    
+
+    
 
     return (
         <>

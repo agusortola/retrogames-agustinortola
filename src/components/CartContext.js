@@ -1,5 +1,5 @@
-import { CloudSharp, ContactsOutlined } from "@material-ui/icons";
 import { createContext, useEffect, useState } from "react";
+import { getFireStore } from '../firebase';
 
 export const CartContext = createContext()
 
@@ -45,11 +45,25 @@ export const CartProvider = ({children}) => {
 
     const checkOut = (form) => {
         cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún item :)')
-        console.log(form)
+        addOrder(form)
     }
-    const formToFirebase = () => {
-        
-    }
+
+    const db = getFireStore()
+    const addOrder = (form) => {
+        const data = form
+      
+        db.collection("orders")
+          .doc(new Date().getTime().toString())
+          .set(data)
+          .then(() => {
+            console.log("A new order has been added", "Success");
+          })
+          .catch(error => {
+            console.log(error.message, "Create user failed");
+           
+          });
+      };
+
 
     // el quantity no se guarda en un estado, sino que se calcula en base al cart cada vez que se modifica
     useEffect(()=>{
@@ -59,7 +73,7 @@ export const CartProvider = ({children}) => {
 
 
     return(
-        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut, formToFirebase}}>
+        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut}}>
             {children}
         </CartContext.Provider>
     )
