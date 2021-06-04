@@ -27,107 +27,88 @@ const Cart = () => {
 
     return (
         <>
-        <div className="container">
-        <div className="item">
-            {cartItems.cart.map((item) => (
-                <div className='row'>
-                    <div className='qty'>
-                       {item.quantity} x 
+            <div className="container">
+                <div className="item">
+                    {cartItems.cart.map((item) => (
+                        <div className='row'>
+                            <div className='qty'>
+                            {item.quantity} x 
+                            </div>
+                            <div className='qty'>
+                                {item.item.title}
+                            </div>
+                            <div className='qty'>
+                                {item.item.price * item.quantity}
+                            </div>
+                            <button
+                                onClick={()=>{cartItems.removeFromCart(item.item.id)}}
+                                style={{
+                                    display: "inline-block",
+                                    color: "#ff5252",
+                                }}
+                            >
+                            <i class="nes-icon close is-small"></i>
+                            </button>
+                        </div>
+                    ))}
+                    {cartItems.cart.length>=1 ?
+                    <div className="total">
+                        <p>Total: {total}</p>
                     </div>
-                    <div className='qty'>
-                        {item.item.title}
-                    </div>
-                    <div className='qty'>
-                        {item.item.price * item.quantity}
-                    </div>
-                    <button
-                        onClick={()=>{cartItems.removeFromCart(item.item.id)}}
-                        style={{
-                            display: "inline-block",
-                            color: "#ff5252",
-                        }}
-                    >
-                       <i class="nes-icon close is-small"></i>
-                    </button>
-                </div>
-            ))}
-            {cartItems.cart.length>=1 ?
-            <div className="total">
-                <p>Total: {total}</p>
-            </div>
-            : 
-            <> 
-            </>
-            }
-            
-            
-            {cartItems.cart.length>=1 ?
-                
-                <>
-                <Button className='btns'
-                    onClick={()=> cartItems.clear()}
-                    startIcon={<DeleteIcon />} 
-                    variant="contained"
-                    size="small"
-                    style={{
-                    fontSize:10,
-                    fontFamily: "open-sans",
-                    backgroundColor: '#ff3f34',
-                    borderColor: '#ff3f34',
-                    }}  
-                >
-                    Vaciar
-                </Button>
-                <Form 
-                    onSubmit={onSubmit}
-                    setIsDisabledButton={setIsDisabledButton}
-                />
+                    : 
+                    <> 
+                    </>
+                    }
+                    {cartItems.cart.length>=1 ?
+                        <>
+                        <Form 
+                            onSubmit={onSubmit}
+                            setIsDisabledButton={setIsDisabledButton}
+                            
+                        />
 
-                {isDisabledButton ?
-                <Button className='btns'
-                    disabled
-                    variant="contained"
-                    size="small"
-                    style={{
-                    fontSize:10,
-                    fontFamily: "open-sans",
-                    backgroundColor: 'grey',
-                    borderColor: 'green',
-                    padding:5,
-                    margin:5
-                    }}  
-                >
-                    Crear Orden
-                </Button>
-                :
-                <Button className='btns'
-                onClick={()=> cartItems.checkOut(form)}
-                startIcon={<DoneAllIcon />} 
-                variant="contained"
-                size="small"
-                style={{
-                fontSize:10,
-                fontFamily: "open-sans",
-                backgroundColor: 'green',
-                borderColor: 'green',
-                padding:5,
-                margin:5
-                }}  
-            >
-                Crear Orden
-            </Button>    
+                        {isDisabledButton ?
+                            <div className= "btns">
+                                <Button class="nes-btn is-error"
+                                onClick={()=> cartItems.clear()}
+                                style={{padding:20, marginTop: 20, width: '50%'}} 
                 
-                }
-                </>
-                :
-                <div class="nes-balloon from-left is-dark">
-                    <span class="nes-text is-error"><p>No hay items en el carrito.</p></span>
-                </div>  
-            }
- 
-        </div>
-        </div>
-    </>
+                                >
+                                    Vaciar Carrito
+                                </Button>
+                                <Button class="nes-btn is-disabled"
+                                    disabled
+                                    style={{padding:20, marginTop: 20}}
+                                >
+                                    Crear Orden
+                                </Button>
+                            </div>
+                            :
+                            <div className= "btns">
+                                <Button class="nes-btn is-error"
+                                onClick={()=> cartItems.clear()}
+                                style={{padding:20, marginTop: 20, width: '50%'}} 
+
+                                >
+                                    Vaciar Carrito
+                                </Button>
+                                <Button class="nes-btn is-success"
+                                    onClick={()=> cartItems.checkOut(form)}
+                                    style={{padding:20, marginTop: 20}}
+                                >
+                                Crear Orden
+                                </Button>    
+                            </div>
+                        }
+                        </>
+                        :
+                        <div class="nes-balloon from-left is-dark">
+                            <span class="nes-text is-error"><p>No hay items en el carrito.</p></span>
+                        </div>  
+                    }
+                </div>
+            </div>
+        </>
 
      );
 }

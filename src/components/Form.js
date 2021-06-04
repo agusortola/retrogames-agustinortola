@@ -21,20 +21,23 @@ export const Form = ({onSubmit, setIsDisabledButton}) => {
 
     return(
         
-            <div className="inputs">
+            <div className="inputs" style={{padding:10, marginTop: 10}}>
             <Input
+                isEmpty
                 id="name"
                 label="Nombre"
                 value={form.name}
                 onChange={handleForm}
             />
             <Input
+                isEmpty
                 id="surname"
                 label="Apellido"
                 value={form.surname}
                 onChange={handleForm}
             />
             <Input
+                isEmpty
                 id="email"
                 label="E-mail"
                 value={form.email}

@@ -45,13 +45,14 @@ export const CartProvider = ({children}) => {
 
     const checkOut = (form) => {
         cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún item :)')
+        console.log(cart, form)
+        
         addOrder(form)
     }
 
     const db = getFireStore()
     const addOrder = (form) => {
-        const data = form
-      
+        const data = form            
         db.collection("orders")
           .doc(new Date().getTime().toString())
           .set(data)

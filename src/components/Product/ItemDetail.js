@@ -23,6 +23,7 @@ function ItemDetail (item) {
         }
     }
 
+    console.log(item.detailedDescription)
     return ( 
         <div className="productDetail">
             <div className="img">

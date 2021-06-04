@@ -21,7 +21,8 @@ const ItemList = (props) => {
                   img={item.img} 
                   title={item.title} 
                   price={item.price}
-                  console={item.categoryId} 
+                  console={item.categoryId}
+                  detailedDescription={item.detailedDescription} 
                   id= {item.id}
                 />
               </Grid>
