@@ -43,8 +43,12 @@ export const CartProvider = ({children}) => {
         
     }
 
-    const checkOut = () => {
+    const checkOut = (form) => {
         cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún item :)')
+        console.log(form)
+    }
+    const formToFirebase = () => {
+        
     }
 
     // el quantity no se guarda en un estado, sino que se calcula en base al cart cada vez que se modifica
@@ -52,8 +56,10 @@ export const CartProvider = ({children}) => {
         setQuantity(() =>  cart.reduce((t, item) => t += item.quantity, 0))
     },[cart])
 
+
+
     return(
-        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut}}>
+        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut, formToFirebase}}>
             {children}
         </CartContext.Provider>
     )

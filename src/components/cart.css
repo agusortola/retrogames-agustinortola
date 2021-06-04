@@ -15,8 +15,7 @@
 .row{
     display: block;
     width: 100%;
-    border-top: 1px solid aqua;
-    border-bottom: 1px solid aqua;
+    border-top: 3px solid #68e941;
     padding: 20px;
     font-family: 'Press Start 2P';
 }
@@ -36,10 +35,26 @@
 }
 
 .btns{
+    display: block;
     margin-top: 20px;
     align-self: center;
     text-align: center;
 }
 .btns p{
     font-family: 'Press Start 2P';
+}
+
+.total{
+    border-top: 3px solid #68e941;
+    margin-top: 20px; 
+    padding-top: 20px; 
+    text-align: center;
+}
+
+.inputs{
+    color: black;
+    display: block;
+    align-self: center;
+    text-align: center;
+    margin: auto;
 }
