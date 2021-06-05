@@ -18,11 +18,16 @@ export const Form = ({onSubmit, setIsDisabledButton}) => {
         onSubmit(form)
         setIsDisabledButton(!setIsDisabledButton)
     }
+    else{
+        setIsDisabledButton(true)
+    }
+    
 
     return(
         
-            <div className="inputs" style={{padding:10, marginTop: 10}}>
+        <div className="inputs" style={{padding:10, marginTop: 10}}>
             <Input
+                clazz = { form.name.length > 0 ? "nes-input is-success" : "nes-input is-dark" }              
                 isEmpty
                 id="name"
                 label="Nombre"
@@ -30,6 +35,7 @@ export const Form = ({onSubmit, setIsDisabledButton}) => {
                 onChange={handleForm}
             />
             <Input
+                clazz = { form.surname.length > 0 ? "nes-input is-success" : "nes-input is-dark" }
                 isEmpty
                 id="surname"
                 label="Apellido"
@@ -37,12 +43,13 @@ export const Form = ({onSubmit, setIsDisabledButton}) => {
                 onChange={handleForm}
             />
             <Input
+                clazz = { form.email.length > 0 ? "nes-input is-success" : "nes-input is-dark" }
                 isEmpty
                 id="email"
                 label="E-mail"
                 value={form.email}
                 onChange={handleForm}
             />
-            </div>
+        </div>
     )
 }

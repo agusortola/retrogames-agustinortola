@@ -20,11 +20,7 @@ const Cart = () => {
     const onSubmit = (form) =>{
        setForm(form)
     }
-
     
-
-    
-
     return (
         <>
             <div className="container">
@@ -92,7 +88,7 @@ const Cart = () => {
                                 >
                                     Vaciar Carrito
                                 </Button>
-                                <Button class="nes-btn is-success"
+                                <Button class= "nes-btn is-success"
                                     onClick={()=> cartItems.checkOut(form)}
                                     style={{padding:20, marginTop: 20}}
                                 >

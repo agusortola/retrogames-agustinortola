@@ -1,13 +1,14 @@
 import { useState } from 'react';
 
-export const Input = ({id, label, value, onChange}) => {
+export const Input = ({id, label, value, onChange, clazz}) => {
 
 
 return (
     <div class="nes-field" style={{padding:10}}>
         <label for="dark_field">{label}</label>     
             <input            
-                class="nes-input is-dark"
+                class={clazz}
+                style={{backgroundColor:'#212529'}}
                 type="text" 
                 onChange={({target}) => onChange(id, target.value)}
                 value={value}
