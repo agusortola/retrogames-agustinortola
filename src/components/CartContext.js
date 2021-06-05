@@ -45,22 +45,36 @@ export const CartProvider = ({children}) => {
 
     const checkOut = (form) => {
         cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún item :)')
-        console.log(cart, form)
-        
-        addOrder(form)
+        console.log(form, cart)
+        const order = cart.map(item => {
+            return {
+                item: item.item.title,
+                quantity: item.quantity
+            }
+        })
+        addOrder(form, order)
     }
 
     const db = getFireStore()
-    const addOrder = (form) => {
-        const data = form            
+    const addOrder = (form, order) => {
+        const data = {
+            buyer:{
+                name: form.name,
+                surname: form.surname,
+                email: form.email
+            },
+            order
+            
+        }
+        console.log("data", data)           
         db.collection("orders")
-          .doc(new Date().getTime().toString())
-          .set(data)
+          //.doc(new Date().getTime().toString())
+          .add(data)
           .then(() => {
             console.log("A new order has been added", "Success");
           })
           .catch(error => {
-            console.log(error.message, "Create user failed");
+            console.log(error.message, "Create order failed");
            
           });
       };
