@@ -19,8 +19,7 @@
 ## Cómo correr el proyecto de forma local　
 
 - Clonar el repositorio en tu PC
-- Presionar  `ctrl + shift + ñ` para abrir una nueva terminal
-- Dirigirse a la consola
+- Abrir una terminal en el directorio del proyecto
 - En la consola, aplicar el comando `npm start` o `npm run start` que nos abrirá una ventana en el navegador con el proyecto.
 
 ## Logo
