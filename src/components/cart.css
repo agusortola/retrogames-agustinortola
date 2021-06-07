@@ -19,9 +19,11 @@
 .row{
     display: block;
     width: 100%;
-    border-top: 3px solid #68e941;
+    border-right: 3px solid #101314;
+    border-bottom: 3px solid #101314;
     padding: 20px;
     font-family: 'Press Start 2P';
+    background-color: #414b52;
 }
 
 .title{
@@ -55,7 +57,9 @@
 }
 
 .total{
-    border-top: 3px solid #68e941;
+    border-right: 3px solid #4aa52e;
+    border-bottom: 3px solid #4aa52e;
+    background-color: #44dd15;
     margin-top: 20px; 
     padding-top: 20px; 
     text-align: center;

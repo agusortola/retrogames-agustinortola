@@ -4,7 +4,8 @@
     padding: 20px;
     max-width: 85%;
     margin: auto;
-    border-bottom: 1px solid #68e941;
+    border-right: 4px solid #101314;
+    border-bottom: 4px solid #101314;
     align-content: center;
     justify-content: center;
     margin-bottom: 80px;
@@ -18,9 +19,7 @@
   .logo-img{
     width: 130px;
   }
-  .navbar p:hover {
-    color: #b5b5e7;
-  }
+  
   .navbar .cart{
     display: inline-block;
     float: right;

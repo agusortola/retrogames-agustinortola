@@ -6,15 +6,17 @@
     width: 100%;
     display: block;
     padding: 15px;
-    border: 2px solid #68e941;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    border-right: 5px solid #101314;
+    border-bottom: 5px solid #101314;
+   
     transition: 0.3s;
-    background-color: #212529;
+    background-color: #414b52;
 }
 
 .product:hover {
  
-    transform: translate(0, -15px);
+    transform: translate(0, -10px);
 
     
   }
@@ -81,7 +83,8 @@
     height: 210px;
     overflow: hidden;
     margin-bottom: 10px;
-    border: 2px solid #68e941;
+    border-right: 3px solid #101314;
+    border-bottom: 3px solid #101314;
 
 }
 

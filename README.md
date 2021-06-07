@@ -22,6 +22,30 @@
 - Abrir una terminal en el directorio del proyecto
 - En la consola, aplicar el comando `npm start` o `npm run start` que nos abrirá una ventana en el navegador con el proyecto.
 
+
+## Decisiones y performance
+
+La lógica tanto de las Categorías como la del detalle de cada producto se pensaron para no tener que traer una y otra vez la data de FireStore. Es decir, el catálogo de productos se trae de la base de datos una sola vez en el ItemListContainer, que le pasa como prop el/los item/s necesarios a los componentes mencionados anteriormente.
+
+
+En el componente padre (ItemListContainer)
+`<ItemList category={categoryId} items={items}/>`
+
+En el componente hijo (ItemList)
+
+           {props.items.filter(i => props.category == null || i.categoryId == props.category).map((item) => (
+              <Grid item xs={4}>
+                <Item 
+                  img={item.img} 
+                  title={item.title} 
+                  price={item.price}
+                  console={item.categoryId}
+                  detailedDescription={item.detailedDescription} 
+                  id= {item.id}
+                />
+              </Grid>
+            ))} 
+
 ## Logo
 
 El logo del proyecto fue diseñado por mi en Adobe Illustrator. Abajo una imagen de referencia.
