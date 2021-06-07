@@ -7,17 +7,3 @@
     display: inline-block;
 }
 
-.links li{
-    font-family: "Press Start 2P";
-    display: inline-block;
-    padding: 0px 10px 10px 10px;
-    border-bottom: 3px solid #68e941;
-}
-
-.links li:hover {
-    font-family: "Press Start 2P";
-    color: #68e941;
-    transform: translate(0, -5px);
-    border-bottom: 3px solid #68e941;
-    
-  }
