@@ -6,6 +6,9 @@
     width: 100vw;
     align-items: center;
     font-family: 'Press Start 2P';
+    
+    
+    
 }
 .item{
     display: block;
@@ -41,9 +44,14 @@
     margin-top: 20px;
     align-self: center;
     text-align: center;
+    background-color: #212529;
+    padding-bottom: 100px;
 }
 .btns p{
     font-family: 'Press Start 2P';
+    
+    background-color: #212529;
+
 }
 
 .total{

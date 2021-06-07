@@ -1,15 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 import { getFireStore } from '../firebase';
+// import axios from 'axios';
 
 export const CartContext = createContext()
-
-
 
 export const CartProvider = ({children}) => {
 
     //estado global del carrito, el children no lo modifica!
     const [cart, setCart] = useState([])
     const [quantity, setQuantity] = useState(1)
+    //para animación de carrito
+    const [added, setAdded] = useState(false)
 
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
     const addToCart = (item, count) => {
@@ -29,6 +30,7 @@ export const CartProvider = ({children}) => {
             }
             setCart([...cart, newItem]) 
         }
+        setAdded(true)
     }
     
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
@@ -45,28 +47,31 @@ export const CartProvider = ({children}) => {
 
     const checkOut = (form) => {
         cart.length >=1? alert('Gracias por tu compra!') : alert('Primero añadí algún item :)')
-        console.log(form, cart)
+        let total = 0
+        cart.forEach(i => Math.round((total += (i.item.price * i.quantity) + Number.EPSILON) * 100) / 100)
         const order = cart.map(item => {
             return {
                 item: item.item.title,
-                quantity: item.quantity
+                quantity: item.quantity,
+                subtotal: item.quantity * item.item.price
             }
         })
-        addOrder(form, order)
+        addOrder(form, order, total)
+        // goToMPCheckOut(order)
     }
 
     const db = getFireStore()
-    const addOrder = (form, order) => {
+    const addOrder = (form, order, total) => {
+        
         const data = {
             buyer:{
                 name: form.name,
                 surname: form.surname,
                 email: form.email
             },
-            order
-            
-        }
-        console.log("data", data)           
+            order,
+            total
+        }          
         db.collection("orders")
           //.doc(new Date().getTime().toString())
           .add(data)
@@ -87,8 +92,22 @@ export const CartProvider = ({children}) => {
 
 
 
+    // function goToMPCheckOut(order) {
+    //     const axios = require('axios');
+    //     console.log(axios)
+    //     let myData= JSON.stringify({
+    //         order,
+    //     })
+    //     const headers = { 
+    //         'Authorization': 'APP_USR-6240986439270148-030515-c0c1f6f69c6ee05d332aa50bc3eaadab-165975148',
+    //         'Content-Type': 'application/json',
+    //     };
+    //     axios.post('https://api.mercadopago.com/checkout/', myData, { headers })
+    //         .then(response => this.setState({ orderId: response.data.id }));
+    // }
+
     return(
-        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut}}>
+        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut, added}}>
             {children}
         </CartContext.Provider>
     )

@@ -6,7 +6,7 @@
     width: 100%;
     display: block;
     padding: 15px;
-    border: 3px solid #68e941;
+    border: 2px solid #68e941;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     background-color: #212529;
@@ -68,7 +68,6 @@
 }
 
 .console-tag p{
-    padding-top: 15px;
     font-family: "Press Start 2P";
     color: white;
     font-style: italic;
@@ -82,11 +81,16 @@
     height: 210px;
     overflow: hidden;
     margin-bottom: 10px;
-    border: 3px solid #68e941;
+    border: 2px solid #68e941;
 
 }
 
 .product .img img{
     height:  100%;
     width: 100%;
+}
+
+.snes-logo{
+    transform: scale(0.5)
+
 }

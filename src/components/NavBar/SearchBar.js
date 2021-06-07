@@ -13,14 +13,14 @@ export const SearchBar = () => {
             <div className="links">
                 <nav>
                     <ul>
-                        <Link to = {{pathname: `/category/${category}`}}>
-                             <li onClick={()=>{setCategory('pc')}}>PC</li>
+                        <Link to = {{pathname: `/category/pc`}}>
+                        <button type="button" class="nes-btn is-warning">PC</button>
                         </Link>
-                        <Link to = {{pathname: `/category/${category}`}}>
-                            <li onClick={()=>{setCategory('gameboy')}}>GameBoy</li>
+                        <Link to = {{pathname: `/category/gameboy`}}>
+                        <button type="button" class="nes-btn is-warning">Gameboy</button>
                         </Link>
-                        <Link to = {{pathname: `/category/${category}`}}>
-                            <li onClick={()=>{setCategory('nintendo')}}>Nintendo</li>
+                        <Link to = {{pathname: `/category/nintendo`}}>
+                        <button type="button" class="nes-btn is-warning">Nintendo</button>
                         </Link>
                     </ul>
                 </nav>

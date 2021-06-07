@@ -4,7 +4,7 @@
     padding: 20px;
     max-width: 85%;
     margin: auto;
-    border-bottom: 3px solid #68e941;
+    border-bottom: 1px solid #68e941;
     align-content: center;
     justify-content: center;
     margin-bottom: 80px;
@@ -15,14 +15,12 @@
     color: White;
     font-family: "Press Start 2P";
   }
-
   .logo-img{
     width: 130px;
   }
   .navbar p:hover {
     color: #b5b5e7;
   }
-
   .navbar .cart{
     display: inline-block;
     float: right;
@@ -31,9 +29,6 @@
     vertical-align: middle;
     font-family: "Press Start 2P";
   }
-
-
-
   .navbar .qty-cart{
     font-family: "Press Start 2P";
     margin-top: 15px;

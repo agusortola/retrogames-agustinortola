@@ -20,7 +20,7 @@ export const Item = (props) => {
                 </div>
                 <div className="console-tag">
                
-                    <i class="snes-logo is-large"></i>
+                    <i class="snes-logo"></i>
                     <p className="console">{props.console}</p>
                 </div>
                 </Link>
