@@ -12,7 +12,7 @@ export const NavBar = () => {
         <nav className="navbar">
             <div className="logo">
             <NavLink className="navbar-brand" to={"/"}>
-                <img className= "logo-img" src="https://i.imgur.com/mhwuTrG.png" alt=""/>
+                <img className= "logo-img" src="https://i.imgur.com/ulvf9KC.png" alt=""/>
             </NavLink>
             </div>
             <div className="cart">

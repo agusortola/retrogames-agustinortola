@@ -46,8 +46,21 @@ En el componente hijo (ItemList)
               </Grid>
             ))} 
 
-## Logo
+## Preview de la App
 
-El logo del proyecto fue diseñado por mi en Adobe Illustrator. Abajo una imagen de referencia.
+### Home Page
 
-![](https://i.imgur.com/mhwuTrG.png)
+![](https://i.imgur.com/1J9mG3Y.png)
+
+### Categoría seleccionada
+
+![](https://i.imgur.com/c0y0hyl.png)
+
+### Detalle de producto
+
+![](https://i.imgur.com/yEjBYMc.png)
+
+## Carrito de compras
+
+![](https://i.imgur.com/PMb8ozh.png)
+
