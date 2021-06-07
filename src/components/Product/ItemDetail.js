@@ -6,7 +6,7 @@ import { ItemCount } from './ItemCount';
 
 function ItemDetail (item) {
 
-    const { addToCart, removeFromCart, quantity } = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
     const [count, setCount] = useState(0);
 
     function handleAdd(){

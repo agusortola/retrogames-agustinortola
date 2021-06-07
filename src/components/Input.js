@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export const Input = ({id, label, value, onChange, clazz}) => {
 
 

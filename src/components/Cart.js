@@ -1,13 +1,8 @@
 import './cart.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from './CartContext';
 import { Button } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
 import {Form} from './Form'
-
-
-
 
 const Cart = () => {
     const cartItems = useContext(CartContext)
@@ -22,7 +17,7 @@ const Cart = () => {
     }
     
     return (
-        <>
+        <div className="allContent">
             <div className="container">
                 <div className="item">
                     {cartItems.cart.map((item) => (
@@ -47,6 +42,8 @@ const Cart = () => {
                             </button>
                         </div>
                     ))}
+                    
+
                     {cartItems.cart.length>=1 ?
                     <div className="total">
                         <p>Total: {total}</p>
@@ -55,6 +52,9 @@ const Cart = () => {
                     <> 
                     </>
                     }
+                    </div>
+                    <div className="test">
+                    
                     {cartItems.cart.length>=1 ?
                         <>
                         <Form 
@@ -67,14 +67,14 @@ const Cart = () => {
                             <div className= "btns">
                                 <Button class="nes-btn is-error"
                                 onClick={()=> cartItems.clear()}
-                                style={{padding:20, marginTop: 20, width: '50%'}} 
+                                style={{padding:20, marginTop: 20, width: '90%'}} 
                 
                                 >
                                     Vaciar Carrito
                                 </Button>
                                 <Button class="nes-btn is-disabled"
                                     disabled
-                                    style={{padding:20, marginTop: 20}}
+                                    style={{padding:20, marginTop: 20, width: '90%'}} 
                                 >
                                     Crear Orden
                                 </Button>
@@ -83,28 +83,32 @@ const Cart = () => {
                             <div className= "btns">
                                 <Button class="nes-btn is-error"
                                 onClick={()=> cartItems.clear()}
-                                style={{padding:20, marginTop: 20, width: '50%'}} 
+                                style={{padding:20, marginTop: 20, width: '90%'}} 
 
                                 >
                                     Vaciar Carrito
                                 </Button>
                                 <Button class= "nes-btn is-success"
                                     onClick={()=> cartItems.checkOut(form)}
-                                    style={{padding:20, marginTop: 20}}
+                                    style={{padding:20, marginTop: 20, width: '90%'}} 
                                 >
                                 Crear Orden
                                 </Button>    
                             </div>
+                            
                         }
+                        
                         </>
                         :
-                        <div class="nes-balloon from-left is-dark">
+                        <div className="nobackground">
+                        <span class="nes-balloon from-left is-dark">
                             <span class="nes-text is-error"><p>No hay items en el carrito.</p></span>
-                        </div>  
+                        </span>
+                        </div>
                     }
+                    </div>
                 </div>
             </div>
-        </>
 
      );
 }

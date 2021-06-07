@@ -6,7 +6,7 @@ import { CartContext } from '../CartContext';
 
 export const NavBar = () => {
 
-    const { quantity, added } = useContext(CartContext)    
+    const { quantity } = useContext(CartContext)    
 
     return ( 
         <nav className="navbar">

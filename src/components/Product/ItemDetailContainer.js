@@ -1,9 +1,5 @@
 import './ItemDetailContainer.css';
-import { useParams } from 'react-router-dom';
-import {useContext, useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import { CartContext } from '../CartContext';
-import { getFireStore } from '../../firebase';
 
 export const ItemDetailContainer = (props) => {
   
