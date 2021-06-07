@@ -9,6 +9,8 @@ export const CartProvider = ({children}) => {
     //estado global del carrito, el children no lo modifica!
     const [cart, setCart] = useState([])
     const [quantity, setQuantity] = useState(1)
+    //para animación de carrito
+    const [added, setAdded] = useState(false)
 
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
     const addToCart = (item, count) => {
@@ -28,6 +30,7 @@ export const CartProvider = ({children}) => {
             }
             setCart([...cart, newItem]) 
         }
+        setAdded(true)
     }
     
     //Esta es la función que modifica el estado global del carrito, los children sí tienen acceso a esta función!
@@ -104,7 +107,7 @@ export const CartProvider = ({children}) => {
     // }
 
     return(
-        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut}}>
+        <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut, added}}>
             {children}
         </CartContext.Provider>
     )

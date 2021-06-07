@@ -9,9 +9,6 @@ import Cart from './components/Cart';
 import "nes.css/css/nes.min.css";
 
 function App() {
-
-
-
   return (
     <Router>
       <div className="background">

@@ -68,7 +68,6 @@
 }
 
 .console-tag p{
-    padding-top: 15px;
     font-family: "Press Start 2P";
     color: white;
     font-style: italic;
@@ -89,4 +88,9 @@
 .product .img img{
     height:  100%;
     width: 100%;
+}
+
+.snes-logo{
+    transform: scale(0.5)
+
 }
