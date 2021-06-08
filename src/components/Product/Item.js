@@ -2,8 +2,7 @@ import "./item.css"
 import {Link } from "react-router-dom";
 
 export const Item = (props) => {
-    return ( 
-        
+    return (     
             <div className="product">
                 <Link to = {{pathname: `/item/${props.id}`, state: { item: props }}}>
                 <div className="img">
@@ -25,6 +24,5 @@ export const Item = (props) => {
                 </div>
                 </Link>
             </div>
-        
      );
 }

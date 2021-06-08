@@ -42,7 +42,6 @@ const Cart = () => {
                             </button>
                         </div>
                     ))}
-                    
 
                     {cartItems.cart.length>=1 ?
                     <div className="total">
@@ -53,8 +52,7 @@ const Cart = () => {
                     </>
                     }
                     </div>
-                    <div className="test">
-                    
+                    <div className="test">  
                     {cartItems.cart.length>=1 ?
                         <>
                         <Form 
@@ -95,9 +93,7 @@ const Cart = () => {
                                 Crear Orden
                                 </Button>    
                             </div>
-                            
-                        }
-                        
+                        }            
                         </>
                         :
                         <div className="nobackground">
@@ -109,7 +105,6 @@ const Cart = () => {
                     </div>
                 </div>
             </div>
-
      );
 }
  

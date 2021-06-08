@@ -3,12 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-
 export const SearchBar = () => {
 
     const [isSelected, setIsSelected] = useState( "category" )
-
-
 
     return (  
         <div className="searchbar">

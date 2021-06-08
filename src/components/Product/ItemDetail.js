@@ -26,7 +26,7 @@ function ItemDetail (item) {
     return ( 
         <div className="productDetail">
             <div className="img">
-            <img src={item.img} alt=""/>
+                <img src={item.img} alt=""/>
             </div>
             <div className="title">
                 <h1>{item.title}</h1>

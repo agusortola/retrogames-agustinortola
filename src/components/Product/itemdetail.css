@@ -1,6 +1,7 @@
 .content{
     background-color: #212529;
 }
+
 .productDetail{
     
     align-items: center;
@@ -26,8 +27,7 @@
     display: block;
     align-self: center;
     width: 100%;
-    padding-bottom: 10px;
-    
+    padding-bottom: 10px; 
 }
 
 .img {
@@ -41,6 +41,3 @@
     width: 100%;
     justify-content: center;
 }
-
-
-

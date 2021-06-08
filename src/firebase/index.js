@@ -1,6 +1,5 @@
 import firebase from 'firebase';
 
-
 const app = firebase.initializeApp({
     apiKey: "AIzaSyANe-xwXBFkQKoQdKnmodfHifwGCq310Ek",
     authDomain: "retro-games-store.firebaseapp.com",

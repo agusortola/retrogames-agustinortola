@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getFireStore } from '../firebase';
-// import axios from 'axios';
+
 
 export const CartContext = createContext()
 
@@ -21,8 +21,7 @@ export const CartProvider = ({children}) => {
             //updateCart es el carrito sin el item encontrado para agregarselo actualizado.
             const updatedCart = cart.filter((c, i) => i !== index)
             updatedCart.push(itemInCart) //agrego item actualizado.
-            setCart(updatedCart)   //seteo carrito actualizado.
-          
+            setCart(updatedCart)   //seteo carrito actualizado. 
         } else {
             const newItem = {
                 item: item,
@@ -57,12 +56,10 @@ export const CartProvider = ({children}) => {
             }
         })
         addOrder(form, order, total)
-        // goToMPCheckOut(order)
     }
 
     const db = getFireStore()
-    const addOrder = (form, order, total) => {
-        
+    const addOrder = (form, order, total) => {  
         const data = {
             buyer:{
                 name: form.name,
@@ -84,27 +81,10 @@ export const CartProvider = ({children}) => {
           });
       };
 
-
     // el quantity no se guarda en un estado, sino que se calcula en base al cart cada vez que se modifica
     useEffect(()=>{
         setQuantity(() =>  cart.reduce((t, item) => t += item.quantity, 0))
     },[cart])
-
-
-
-    // function goToMPCheckOut(order) {
-    //     const axios = require('axios');
-    //     console.log(axios)
-    //     let myData= JSON.stringify({
-    //         order,
-    //     })
-    //     const headers = { 
-    //         'Authorization': 'APP_USR-6240986439270148-030515-c0c1f6f69c6ee05d332aa50bc3eaadab-165975148',
-    //         'Content-Type': 'application/json',
-    //     };
-    //     axios.post('https://api.mercadopago.com/checkout/', myData, { headers })
-    //         .then(response => this.setState({ orderId: response.data.id }));
-    // }
 
     return(
         <CartContext.Provider value={{cart, quantity, addToCart, removeFromCart, clear, checkOut, added}}>
